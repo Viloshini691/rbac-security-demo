@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>🛡️ Admin Dashboard</h1>
+
+<p>
+    Manage system users and review security activity.
+</p>
+
+
+<div class="card">
+
+    <h2>👥 User Management</h2>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Current Role</th>
+            <th>Change Role</th>
+        </tr>
+
+        {% for user in users %}
+
+        <tr>
+
+            <td>{{ user["id"] }}</td>
+
+            <td>
+                {{ user["username"] }}
+            </td>
+
+            <td>
+                {{ user["role"].upper() }}
+            </td>
+
+            <td>
+
+                <form
+                    method="POST"
+                    action="{{ url_for(
+                        'change_role',
+                        user_id=user['id']
+                    ) }}"
+                >
+
+                    <select name="role">
+
+                        <option value="admin">
+                            Admin
+                        </option>
+
+                        <option value="patient">
+                            Patient
+                        </option>
+
+                        <option value="doctor">
+                            Doctor
+                        </option>
+
+                    </select>
+
+                    <button type="submit">
+                        Update
+                    </button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📋 Security Audit Log</h2>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Action</th>
+            <th>Timestamp</th>
+        </tr>
+
+        {% for log in logs %}
+
+        <tr>
+
+            <td>{{ log["id"] }}</td>
+
+            <td>
+                {{ log["username"] }}
+            </td>
+
+            <td>
+                {{ log["action"] }}
+            </td>
+
+            <td>
+                {{ log["timestamp"] }}
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

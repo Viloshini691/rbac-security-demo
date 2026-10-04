@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b1120;
+    color: #e5e7eb;
+}
+
+nav {
+    background: #111827;
+    border-bottom: 1px solid #1f2937;
+    padding: 18px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav a {
+    margin-left: 20px;
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.login-card {
+    max-width: 500px;
+    margin: 70px auto;
+
+    background: #111827;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    border: 1px solid #1f2937;
+}
+
+.card {
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    margin: 25px 0;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    background: #1f2937;
+    color: white;
+
+    border: 1px solid #374151;
+
+    border-radius: 6px;
+
+    padding: 12px;
+}
+
+textarea {
+    min-height: 120px;
+}
+
+button {
+    margin-top: 15px;
+
+    padding: 11px 20px;
+
+    background: #2563eb;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #374151;
+    text-align: left;
+}
+
+th {
+    color: #93c5fd;
+}
+
+.record {
+    background: #1f2937;
+
+    padding: 20px;
+
+    border-radius: 8px;
+
+    margin: 15px 0;
+}
+
+.demo-accounts {
+    margin-top: 30px;
+
+    padding: 15px;
+
+    background: #1f2937;
+
+    border-radius: 8px;
+}
+
+.alert {
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.success {
+    background: #064e3b;
+}
+
+.danger {
+    background: #7f1d1d;
+}
+
+.warning {
+    background: #78350f;
+}

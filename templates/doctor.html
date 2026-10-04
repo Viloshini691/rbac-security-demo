@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>🩺 Doctor Dashboard</h1>
+
+<p>
+    Only records explicitly authorized by patients are displayed.
+</p>
+
+
+<div class="card">
+
+    <h2>🔓 Authorized Records</h2>
+
+    {% for record in records %}
+
+        <div class="record">
+
+            <h3>
+                {{ record["title"] }}
+            </h3>
+
+            <p>
+                Patient:
+                <strong>
+                    {{ record["patient_name"] }}
+                </strong>
+            </p>
+
+            <p>
+                {{ record["content"] }}
+            </p>
+
+        </div>
+
+    {% else %}
+
+        <p>
+            You currently have no authorized records.
+        </p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

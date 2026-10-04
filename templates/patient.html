@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>👤 Patient Dashboard</h1>
+
+<p>
+    Create records and control who can access them.
+</p>
+
+
+<div class="card">
+
+    <h2>➕ Create Record</h2>
+
+    <form
+        method="POST"
+        action="{{ url_for('create_record') }}"
+    >
+
+        <label>Record Title</label>
+
+        <input
+            type="text"
+            name="title"
+            required
+        >
+
+        <label>Record Content</label>
+
+        <textarea
+            name="content"
+            required
+        ></textarea>
+
+        <button type="submit">
+            Create Record
+        </button>
+
+    </form>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📁 My Records</h2>
+
+    {% for record in records %}
+
+        <div class="record">
+
+            <h3>
+                {{ record["title"] }}
+            </h3>
+
+            <p>
+                {{ record["content"] }}
+            </p>
+
+            <form
+                method="POST"
+                action="{{ url_for('grant_access') }}"
+            >
+
+                <input
+                    type="hidden"
+                    name="record_id"
+                    value="{{ record['id'] }}"
+                >
+
+                <select name="doctor_id">
+
+                    {% for doctor in doctors %}
+
+                    <option
+                        value="{{ doctor['id'] }}"
+                    >
+                        {{ doctor["username"] }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+                <button type="submit">
+                    Grant Doctor Access
+                </button>
+
+            </form>
+
+        </div>
+
+    {% else %}
+
+        <p>No records created yet.</p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
